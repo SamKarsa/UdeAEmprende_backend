@@ -2,7 +2,6 @@ package com.emprendimientos.udea_emprende.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emprendimientos.udea_emprende.repository.UserRepository;
@@ -10,8 +9,11 @@ import com.emprendimientos.udea_emprende.model.User;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getUsers() {
         return userRepository.findAll();
