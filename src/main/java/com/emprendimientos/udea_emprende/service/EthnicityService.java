@@ -15,7 +15,7 @@ public class EthnicityService {
         this.ethnicityRepository = ethnicityRepository;
     }
 
-    public List<Ethnicity> getEthnicities() {
+    public List<Ethnicity> getAllEthnicities() {
         return ethnicityRepository.findAll();
     }
 

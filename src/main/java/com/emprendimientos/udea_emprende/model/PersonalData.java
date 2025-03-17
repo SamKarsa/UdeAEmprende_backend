@@ -11,16 +11,16 @@ public class PersonalData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer personalDataId;
 
-    @Column(nullable = false, length = 155)
+    @Column(nullable = false, length = 50)
     private String firstName;
 
-    @Column(nullable = false, length = 155)
+    @Column(nullable = false, length = 50)
     private String lastName;
 
-    @Column(nullable = false, length = 155)
+    @Column(nullable = false, length = 12)
     private String identificationNumber;
 
-    @Column(nullable = false, length = 155)
+    @Column(nullable = false, length = 15)
     private String phoneNumber;
 
     // Conexion de la tabla PersonalData con la tabla User

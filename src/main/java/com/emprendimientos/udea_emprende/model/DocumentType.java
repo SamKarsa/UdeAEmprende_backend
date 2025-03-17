@@ -13,7 +13,7 @@ public class DocumentType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer documentTypeId;
 
-    @Column(nullable = false, length = 45)
+    @Column(nullable = false, length = 30)
     private String documentTypeName;
 
     // Conexion de la tabla DocumentType con la tabla PersonalData

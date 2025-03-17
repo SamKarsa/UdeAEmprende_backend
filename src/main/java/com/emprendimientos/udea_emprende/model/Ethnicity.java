@@ -13,7 +13,7 @@ public class Ethnicity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ethnicityId;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 50)
     private String ethnicityName;
 
     // Conexion de la tabla Ethnicity con la tabla PersonalData

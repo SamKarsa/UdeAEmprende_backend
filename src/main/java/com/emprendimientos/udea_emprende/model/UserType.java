@@ -13,7 +13,7 @@ public class UserType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userTypeId;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 50)
     private String userTypeName;
 
     // Relacion de 1:N con Roles

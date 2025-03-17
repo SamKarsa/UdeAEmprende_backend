@@ -15,7 +15,7 @@ public class OccupationService {
         this.occupationRepository = occupationRepository;
     }
 
-    public List<Occupation> geOccupations() {
+    public List<Occupation> getAllOccupations() {
         return occupationRepository.findAll();
     }
 

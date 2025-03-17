@@ -15,7 +15,7 @@ public class DocumentTypeService {
         this.documentTypeRepository = documentTypeRepository;
     }
 
-    public List<DocumentType> getDocumentTypes() {
+    public List<DocumentType> getAllDocumentTypes() {
         return documentTypeRepository.findAll();
     }
 
