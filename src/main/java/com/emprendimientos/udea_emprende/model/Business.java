@@ -1,5 +1,7 @@
 package com.emprendimientos.udea_emprende.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -32,4 +34,8 @@ public class Business {
 
     @Column(nullable = false)
     private boolean businessStatus;
+
+    // Relacion 1:N con BusinessCategory
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
+    private List<BusinessCategory> businessCategories;
 }

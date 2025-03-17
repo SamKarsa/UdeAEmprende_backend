@@ -18,15 +18,15 @@ public class UserTypeService {
         return userTypeRepository.findAll();
     }
 
-    public UserType getUserTypeById(Integer id) {
-        return userTypeRepository.findById(id).orElse(null);
+    public UserType getUserTypeById(Integer userTypeId) {
+        return userTypeRepository.findById(userTypeId).orElse(null);
     }
 
     public UserType saveUserType(UserType userType) {
         return userTypeRepository.save(userType);
     }
 
-    public void deleteUserTypeById(Integer id) {
-        userTypeRepository.deleteById(id);
+    public void deleteUserTypeById(Integer userTypeId) {
+        userTypeRepository.deleteById(userTypeId);
     }
 }
