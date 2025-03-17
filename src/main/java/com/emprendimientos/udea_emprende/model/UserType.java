@@ -1,5 +1,7 @@
 package com.emprendimientos.udea_emprende.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,4 +16,7 @@ public class UserType {
     @Column(nullable = false, length = 100)
     private String userTypeName;
 
+    // Relacion de 1:N con Roles
+    @OneToMany(mappedBy = "userType", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Roles> roles;
 }

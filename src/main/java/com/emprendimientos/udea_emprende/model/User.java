@@ -1,5 +1,7 @@
 package com.emprendimientos.udea_emprende.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,4 +25,8 @@ public class User {
     // Relación 1:1 con PersonalData
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private PersonalData personalData;
+
+    // Relacion de 1:N con Roles
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Roles> roles;
 }
