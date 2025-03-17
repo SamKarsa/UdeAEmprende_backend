@@ -27,7 +27,7 @@ public class PersonalDataService {
         return personalDataRepository.save(personalData);
     }
 
-    public void deletePersonalData(Integer personalDataId) {
+    public void deletePersonalDataById(Integer personalDataId) {
         personalDataRepository.deleteById(personalDataId);
     }
 }

@@ -27,7 +27,7 @@ public class OccupationService {
         return occupationRepository.save(occupation);
     }
 
-    public void deleteOccupation(Integer occupationId) {
+    public void deleteOccupationById(Integer occupationId) {
         occupationRepository.deleteById(occupationId);
     }
 }

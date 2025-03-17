@@ -27,7 +27,7 @@ public class DocumentTypeService {
         return documentTypeRepository.save(documentType);
     }
 
-    public void deleteDocumentType(Integer documentTypeId) {
+    public void deleteDocumentTypeById(Integer documentTypeId) {
         documentTypeRepository.deleteById(documentTypeId);
     }
 }

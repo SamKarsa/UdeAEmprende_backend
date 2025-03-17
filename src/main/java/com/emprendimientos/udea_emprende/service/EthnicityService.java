@@ -27,7 +27,7 @@ public class EthnicityService {
         return ethnicityRepository.save(ethnicity);
     }
 
-    public void deleteEthnicity(Integer ethnicityId) {
+    public void deleteEthnicityById(Integer ethnicityId) {
         ethnicityRepository.deleteById(ethnicityId);
     }
 }

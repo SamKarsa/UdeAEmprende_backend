@@ -14,7 +14,7 @@ public class RoleService {
         this.rolesRepository = rolesRepository;
     }
 
-    public List<Role> getAllRole() {
+    public List<Role> getRoles() {
         return rolesRepository.findAll();
     }
 
@@ -26,7 +26,7 @@ public class RoleService {
         return rolesRepository.save(roles);
     }
 
-    public void deleteRole(Integer rolesId) {
+    public void deleteRoleById(Integer rolesId) {
         rolesRepository.deleteById(rolesId);
     }
 }

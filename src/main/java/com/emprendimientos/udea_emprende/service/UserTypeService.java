@@ -14,19 +14,19 @@ public class UserTypeService {
         this.userTypeRepository = userTypeRepository;
     }
 
-    public List<UserType> findAll() {
+    public List<UserType> getAllUserType() {
         return userTypeRepository.findAll();
     }
 
-    public UserType findById(Integer id) {
+    public UserType getUserTypeById(Integer id) {
         return userTypeRepository.findById(id).orElse(null);
     }
 
-    public UserType save(UserType userType) {
+    public UserType saveUserType(UserType userType) {
         return userTypeRepository.save(userType);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteUserTypeById(Integer id) {
         userTypeRepository.deleteById(id);
     }
 }
