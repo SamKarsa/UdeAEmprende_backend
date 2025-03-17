@@ -1,5 +1,7 @@
 package com.emprendimientos.udea_emprende.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,4 +15,8 @@ public class Ethnicity {
 
     @Column(nullable = false, length = 100)
     private String ethnicityName;
+
+    // Conexion de la tabla Ethnicity con la tabla PersonalData
+    @OneToMany(mappedBy = "ethnicity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<PersonalData> personalDataList;
 }

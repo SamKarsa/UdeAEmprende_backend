@@ -19,4 +19,8 @@ public class User {
 
     @Column(nullable = false)
     private Boolean userStatus;
+
+    // Relación 1:1 con PersonalData
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private PersonalData personalData;
 }
