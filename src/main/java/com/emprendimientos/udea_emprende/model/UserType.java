@@ -17,6 +17,6 @@ public class UserType {
     private String userTypeName;
 
     // Relacion de 1:N con Roles
-    @OneToMany(mappedBy = "userType", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Roles> roles;
+    @OneToMany(mappedBy = "userType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Role> roles;
 }

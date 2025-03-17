@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "ROLES")
-public class Roles {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rolesId;
@@ -23,12 +23,12 @@ public class Roles {
     private LocalDateTime modified;
 
     // Relación N:1 con User
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     // Relación N:1 con UserType
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "userTypeId", nullable = false)
     private UserType userType;
 

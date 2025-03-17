@@ -17,6 +17,6 @@ public class DocumentType {
     private String documentTypeName;
 
     // Conexion de la tabla DocumentType con la tabla PersonalData
-    @OneToMany(mappedBy = "documentType", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "documentType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PersonalData> personalDataList;
 }

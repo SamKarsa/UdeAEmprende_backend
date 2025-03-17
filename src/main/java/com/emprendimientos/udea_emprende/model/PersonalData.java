@@ -29,22 +29,22 @@ public class PersonalData {
     private User user;
 
     // Conexion de la tabla PersonalData con la tabla DocumentType
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "documentTypeId", nullable = false)
     private DocumentType documentType;
 
     // Conexion de la tabla PersonalData con la tabla Ethnicity
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "ethnicityId", nullable = false)
     private Ethnicity ethnicity;
 
     // Conexion de la tabla PersonalData con la tabla Occupation
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "occupationId", nullable = false)
     private Occupation occupation;
 
     // Conexion de la tabla PersonalData con la tabla Vulnearbility
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "vulnerabilityId", nullable = false)
     private Vulnerability vulnerability;
 }

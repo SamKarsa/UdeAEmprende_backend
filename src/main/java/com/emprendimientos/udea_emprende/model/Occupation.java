@@ -17,6 +17,6 @@ public class Occupation {
     private String occupationName;
 
     // Conexion de la tabla Occupation con la tabla PersonalData
-    @OneToMany(mappedBy = "occupation", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "occupation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PersonalData> personalDataList;
 }

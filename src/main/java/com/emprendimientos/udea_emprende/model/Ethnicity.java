@@ -17,6 +17,6 @@ public class Ethnicity {
     private String ethnicityName;
 
     // Conexion de la tabla Ethnicity con la tabla PersonalData
-    @OneToMany(mappedBy = "ethnicity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ethnicity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PersonalData> personalDataList;
 }
