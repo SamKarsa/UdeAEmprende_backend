@@ -13,4 +13,9 @@ public class Image {
 
     @Column(nullable = false, length = 50)
     private String imageURL;
+
+    // Relacion N:1 con Business
+    @ManyToOne
+    @JoinColumn(name = "businessId", nullable = false)
+    private Business business;
 }

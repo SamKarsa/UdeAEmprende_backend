@@ -29,4 +29,12 @@ public class User {
     // Relacion de 1:N con Roles
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Role> roles;
+
+    // Relacion de 1:N con Business
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Business> businesses;
+
+    // Relacion de 1:N con Review
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Review> reviews;
 }

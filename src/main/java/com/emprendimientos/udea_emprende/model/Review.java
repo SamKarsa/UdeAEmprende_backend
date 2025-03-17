@@ -23,4 +23,13 @@ public class Review {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    // Relacion N:1 con Business
+    @ManyToOne
+    @JoinColumn(name = "businessId", nullable = false)
+    private Business business;
+
+    // Relacion N:1 con User
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 }

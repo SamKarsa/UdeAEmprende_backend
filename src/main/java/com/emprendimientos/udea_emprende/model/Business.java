@@ -38,4 +38,17 @@ public class Business {
     // Relacion 1:N con BusinessCategory
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BusinessCategory> businessCategories;
+
+    // Relacion 1:N con Image
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Image> images;
+
+    // Relacion 1:N con Review
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+
+    // Relacion 1:N con User
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 }
