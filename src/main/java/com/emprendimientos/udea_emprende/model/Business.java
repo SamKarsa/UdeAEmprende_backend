@@ -36,6 +36,6 @@ public class Business {
     private boolean businessStatus;
 
     // Relacion 1:N con BusinessCategory
-    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BusinessCategory> businessCategories;
 }

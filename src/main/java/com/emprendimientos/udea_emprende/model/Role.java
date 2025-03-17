@@ -16,11 +16,11 @@ public class Role {
     private Integer rolesId;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime create;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(nullable = false)
-    private LocalDateTime modified;
+    private LocalDateTime updatedAt;
 
     // Relación N:1 con User
     @ManyToOne
