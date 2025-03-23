@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.emprendimientos.udea_emprende.model.Ethnicity;
 import com.emprendimientos.udea_emprende.service.EthnicityService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/ethnicity")

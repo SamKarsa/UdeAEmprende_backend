@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.emprendimientos.udea_emprende.model.DocumentType;
 import com.emprendimientos.udea_emprende.service.DocumentTypeService;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/document-types")
