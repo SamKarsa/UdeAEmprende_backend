@@ -21,7 +21,7 @@ public class OccupationController {
     @Autowired
     private OccupationService occupationService;
 
-    @GetMapping("/listOccupations")
+    @GetMapping
     public List<Occupation> getAllOccupations() {
         return occupationService.getAllOccupations();
     }

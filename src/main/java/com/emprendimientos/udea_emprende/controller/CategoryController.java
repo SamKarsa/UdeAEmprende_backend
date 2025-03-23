@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.emprendimientos.udea_emprende.model.Category;
 import com.emprendimientos.udea_emprende.service.CategoryService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/category")
@@ -20,13 +21,13 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/listCategories")
+    @GetMapping
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
     @PostMapping
-    public Category createNewCategory(Category newCategory) {
+    public Category createNewCategory(@RequestBody Category newCategory) {
         categoryService.saveCategory(newCategory);
         return newCategory;
     }
