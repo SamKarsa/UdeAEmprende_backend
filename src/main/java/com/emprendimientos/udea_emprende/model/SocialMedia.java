@@ -9,16 +9,18 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name = "BUSINESS_CATEGORY")
-public class BusinessCategory {
+@Table(name = "SOCIAL_MEDIA")
+public class SocialMedia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer businessCategoryId;
+    private Integer socialMediaId;
 
-    // Relacion N:1 con Category
-    @ManyToOne
-    @JoinColumn(name = "categoryId", nullable = false)
-    private Category category;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private SocialMediaPlatform platform; // Enum con valores como FACEBOOK, INSTAGRAM, etc.
+
+    @Column(nullable = false, length = 255)
+    private String url;
 
     // Relacion N:1 con Business
     @ManyToOne

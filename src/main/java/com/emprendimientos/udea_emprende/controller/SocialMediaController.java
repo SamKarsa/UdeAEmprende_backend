@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.emprendimientos.udea_emprende.model.UserType;
-import com.emprendimientos.udea_emprende.service.UserTypeService;
+import com.emprendimientos.udea_emprende.model.SocialMedia;
+import com.emprendimientos.udea_emprende.service.SocialMediaService;
 
 @RestController
-@RequestMapping("/api/userType")
+@RequestMapping("/api/socialMedias")
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-public class UserTypeController {
+public class SocialMediaController {
     @Autowired
-    private UserTypeService userTypeService;
+    private SocialMediaService socialMediaService;
 
     @GetMapping
-    public List<UserType> getAllUserTypes() {
-        return userTypeService.getAllUserType();
+    public List<SocialMedia> getAllSocialMedia() {
+        return socialMediaService.getAllSocialMedias();
     }
 
     @PostMapping
-    public UserType createNewUserType(@RequestBody UserType newUserType) {
-        userTypeService.saveUserType(newUserType);
-        return newUserType;
+    public SocialMedia createNewSocialMedia(@RequestBody SocialMedia newSocialMedia) {
+        socialMediaService.saveSocialMedia(newSocialMedia);
+        return newSocialMedia;
     }
 
     @GetMapping("/{id}")
-    public UserType getUserTypeById(@PathVariable Integer id) {
-        return userTypeService.getUserTypeById(id);
+    public SocialMedia getSocialMediaById(@PathVariable Integer id) {
+        return socialMediaService.getSocialMediaById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUserTypeById(@PathVariable Integer id) {
-        userTypeService.deleteUserTypeById(id);
+    public void deleteSocialMediaById(@PathVariable Integer id) {
+        socialMediaService.deleteSocialMediaById(id);
     }
 }

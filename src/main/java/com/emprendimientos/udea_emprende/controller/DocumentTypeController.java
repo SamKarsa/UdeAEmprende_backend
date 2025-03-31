@@ -21,27 +21,27 @@ import com.emprendimientos.udea_emprende.service.DocumentTypeService;
 public class DocumentTypeController {
 
     @Autowired
-    private DocumentTypeService DocumentTypeService;
+    private DocumentTypeService documentTypeService;
 
     @GetMapping
     public List<DocumentType> getAllDocumentTypes() {
-        return DocumentTypeService.getAllDocumentTypes();
+        return documentTypeService.getAllDocumentTypes();
     }
 
     @PostMapping
     public DocumentType createNewDocumentType(@RequestBody DocumentType newDocumentType) {
-        DocumentTypeService.saveDocumentType(newDocumentType);
+        documentTypeService.saveDocumentType(newDocumentType);
         return newDocumentType;
     }
 
     @GetMapping("/{id}")
     public DocumentType getDocumentTypeById(@PathVariable Integer id) {
-        return DocumentTypeService.getDocumentTypeById(id);
+        return documentTypeService.getDocumentTypeById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteDocumentTypeById(@PathVariable Integer id) {
-        DocumentTypeService.deleteDocumentTypeById(id);
+        documentTypeService.deleteDocumentTypeById(id);
     }
 
 }

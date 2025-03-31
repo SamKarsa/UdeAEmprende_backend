@@ -4,8 +4,12 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.LastModifiedDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -25,6 +29,9 @@ public class Role {
     // Relación N:1 con User
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
+    @JsonIgnore // Evita recursión en JSON
+    @ToString.Exclude // Evita recursión en toString()
+    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private User user;
 
     // Relación N:1 con UserType

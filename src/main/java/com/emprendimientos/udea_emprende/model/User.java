@@ -2,8 +2,12 @@ package com.emprendimientos.udea_emprende.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -17,6 +21,7 @@ public class User {
     private String email;
 
     @Column(nullable = false, length = 255)
+    @JsonIgnore
     private String password;
 
     @Column(nullable = false)
@@ -24,6 +29,9 @@ public class User {
 
     // Relación 1:1 con PersonalData
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore // Evita recursión en JSON
+    @ToString.Exclude // Evita recursión en toString()
+    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private PersonalData personalData;
 
     // Relacion de 1:N con Roles
@@ -32,9 +40,16 @@ public class User {
 
     // Relacion de 1:N con Business
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore // Evita recursión en JSON
+    @ToString.Exclude // Evita recursión en toString()
+    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private List<Business> businesses;
 
     // Relacion de 1:N con Review
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore // Evita recursión en JSON
+    @ToString.Exclude // Evita recursión en toString()
+    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private List<Review> reviews;
+
 }
