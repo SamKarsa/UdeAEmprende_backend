@@ -16,14 +16,14 @@ import com.emprendimientos.udea_emprende.model.Business;
 import com.emprendimientos.udea_emprende.service.BusinessService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/business")
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class BusinessController {
 
     @Autowired
     private BusinessService businessService;
 
-    @GetMapping("/listBusiness")
+    @GetMapping
     public List<Business> getAllBusinesses() {
         return businessService.getAllBusinesses();
     }
