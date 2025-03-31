@@ -43,6 +43,10 @@ public class Business {
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Image> images;
 
+    // Relacion 1:N con SocialMedia
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SocialMedia> socialMedias;
+
     // Relacion 1:N con Review
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
