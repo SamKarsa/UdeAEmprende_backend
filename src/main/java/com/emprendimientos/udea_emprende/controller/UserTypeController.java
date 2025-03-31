@@ -16,7 +16,7 @@ import com.emprendimientos.udea_emprende.model.UserType;
 import com.emprendimientos.udea_emprende.service.UserTypeService;
 
 @RestController
-@RequestMapping("/userType")
+@RequestMapping("/api/userType")
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class UserTypeController {
     @Autowired
