@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emprendimientos.udea_emprende.model.Business;
@@ -42,6 +43,16 @@ public class BusinessController {
     @DeleteMapping("/{id}")
     public void deleteBusinessById(@PathVariable Integer id) {
         businessService.deleteBusinessById(id);
+    }
+
+    @GetMapping("/by-category/{categoryId}")
+    public List<Business> getBusinessesByCategory(@PathVariable Integer categoryId) {
+        return businessService.getBusinessesByCategoryId(categoryId);
+    }
+
+    @GetMapping("/search")
+    public List<Business> searchBusinesses(@RequestParam String q) {
+        return businessService.searchBusinesses(q);
     }
 
 }

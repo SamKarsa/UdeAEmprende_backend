@@ -29,4 +29,12 @@ public class BusinessService {
     public void deleteBusinessById(Integer id) {
         businessRepository.deleteById(id);
     }
+
+    public List<Business> getBusinessesByCategoryId(Integer categoryId) {
+        return businessRepository.findBusinessesByCategoryId(categoryId);
+    }
+
+    public List<Business> searchBusinesses(String query) {
+        return businessRepository.searchBusinesses(query);
+    }
 }
