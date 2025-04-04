@@ -2,14 +2,11 @@ package com.emprendimientos.udea_emprende.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.LastModifiedDate;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Data
 @Entity
@@ -19,10 +16,11 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rolesId;
 
+    @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @LastModifiedDate
+    @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
@@ -69,14 +67,39 @@ public class Role {
     // Relación N:1 con User
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
-    @JsonIgnore // Evita recursión en JSON
-    @ToString.Exclude // Evita recursión en toString()
-    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private User user;
 
-    // Relación N:1 con UserType
     @ManyToOne
     @JoinColumn(name = "userTypeId", nullable = false)
     private UserType userType;
 
+    // Métodos auxiliares para manejar solo los IDs en el JSON
+    @Transient
+    private Integer userId;
+
+    @Transient
+    private Integer userTypeId;
+
+    @PostLoad
+    private void fillTransient() {
+        if (user != null) {
+            this.userId = user.getUserId();
+        }
+        if (userType != null) {
+            this.userTypeId = userType.getUserTypeId();
+        }
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void fillPersistent() {
+        if (userId != null) {
+            user = new User();
+            user.setUserId(userId);
+        }
+        if (userTypeId != null) {
+            userType = new UserType();
+            userType.setUserTypeId(userTypeId);
+        }
+    }
 }

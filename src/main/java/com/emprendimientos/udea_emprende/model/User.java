@@ -35,6 +35,9 @@ public class User {
 
     // Relacion de 1:N con Roles
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore // Evita recursión en JSON
+    @ToString.Exclude // Evita recursión en toString()
+    @EqualsAndHashCode.Exclude // Evita recursión en equals() y hashCode()
     private List<Role> roles;
 
     // Relacion de 1:N con Business
