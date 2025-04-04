@@ -11,6 +11,7 @@ import com.emprendimientos.udea_emprende.model.Business;
 
 @Repository
 public interface BusinessRepository extends JpaRepository<Business, Integer> {
+
     @Query("SELECT DISTINCT b FROM Business b JOIN b.businessCategories bc WHERE bc.category.categoryId = :categoryId")
     List<Business> findBusinessesByCategoryId(@Param("categoryId") Integer categoryId);
 
