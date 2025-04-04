@@ -1,8 +1,10 @@
 package com.emprendimientos.udea_emprende.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.emprendimientos.udea_emprende.model.Role;
 import com.emprendimientos.udea_emprende.service.RoleService;
+
+import postMethodDTO.RolePostDTO;
 
 @RestController
 @RequestMapping("/api/roles")
@@ -28,9 +32,16 @@ public class RoleController {
     }
 
     @PostMapping
-    public Role createNewRole(@RequestBody Role newRole) {
-        roleService.saveRole(newRole);
-        return newRole;
+    public RolePostDTO createNewRole(@RequestBody Role role) {
+        RolePostDTO rolePostDTO = new RolePostDTO();
+        rolePostDTO.setUserId(role.getUser().getUserId());
+        rolePostDTO.setUserTypeId(role.getUserType().getUserTypeId());
+        roleService.saveRole(role);
+        return rolePostDTO;
+    }
+
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @GetMapping("/{id}")
