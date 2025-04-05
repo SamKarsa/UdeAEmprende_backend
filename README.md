@@ -4,6 +4,7 @@ Este repositorio contiene el backend del proyecto **Emprende UdeA**, un sistema 
 
 👉 Repositorio del frontend: [UdeAEmprende_frontend](https://github.com/SamKarsa/UdeAEmprende_frontend)
 
+
 > ⚠️ **Nota:** Este backend debe estar corriendo antes de iniciar el frontend, ya que es necesario para que las peticiones del cliente se comuniquen correctamente con la base de datos.
 
 ---
