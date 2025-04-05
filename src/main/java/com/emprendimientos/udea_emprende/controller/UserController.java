@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.emprendimientos.udea_emprende.model.User;
 import com.emprendimientos.udea_emprende.service.UserService;
 
+import getMethodDTO.UserGetDTO;
+import postMethodDTO.UserPostDTO;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +29,42 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserGetDTO> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        List<UserGetDTO> usersDTO = new ArrayList<>();
+
+        for (User user : users) {
+            UserGetDTO userGetDTO = new UserGetDTO();
+            userGetDTO.setUserId(user.getUserId());
+            userGetDTO.setEmail(user.getEmail());
+            userGetDTO.setPassword(user.getPassword());
+            userGetDTO.setUserStatus(user.getUserStatus());
+
+            usersDTO.add(userGetDTO);
+        }
+        return usersDTO;
     }
 
     @PostMapping
-    public User createNewUser(@RequestBody User newUser) {
-        return userService.saveUser(newUser);
+    public UserPostDTO createNewUser(@RequestBody UserPostDTO userPostDTO) {
+        User newUser = new User();
+        newUser.setEmail(userPostDTO.getEmail());
+        newUser.setPassword(userPostDTO.getPassword());
+        newUser.setUserStatus(userPostDTO.getUserStatus());
+
+        userService.saveUser(newUser);
+        return userPostDTO;
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Integer id) {
-        return userService.getUserById(id);
+    public UserGetDTO getUserById(@PathVariable Integer id) {
+        User user = userService.getUserById(id);
+        UserGetDTO userGetDTO = new UserGetDTO();
+        userGetDTO.setUserId(user.getUserId());
+        userGetDTO.setEmail(user.getEmail());
+        userGetDTO.setPassword(user.getPassword());
+        userGetDTO.setUserStatus(user.getUserStatus());
+        return userGetDTO;
     }
 
     @DeleteMapping("/{id}")

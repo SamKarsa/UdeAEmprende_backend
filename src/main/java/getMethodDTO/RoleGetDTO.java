@@ -47,6 +47,6 @@ public class RoleGetDTO {
     }
 
     public void setUserTypeId(Integer userTypeId) {
-     
+        this.userTypeId = userTypeId;
     }
 }

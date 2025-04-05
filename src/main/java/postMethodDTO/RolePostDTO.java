@@ -3,7 +3,7 @@ package postMethodDTO;
 public class RolePostDTO {
 
     private Integer userId;
-    
+
     private Integer userTypeId;
 
     public Integer getUserId() {

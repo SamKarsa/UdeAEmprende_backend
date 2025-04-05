@@ -20,6 +20,22 @@ public class UserType {
     @Column(nullable = false, length = 50)
     private String userTypeName;
 
+    public Integer getUserTypeId() {
+        return userTypeId;
+    }
+
+    public void setUserTypeId(Integer userTypeId) {
+        this.userTypeId = userTypeId;
+    }
+
+    public String getUserTypeName() {
+        return userTypeName;
+    }
+
+    public void setUserTypeName(String userTypeName) {
+        this.userTypeName = userTypeName;
+    }
+
     // Relacion de 1:N con Roles
     @OneToMany(mappedBy = "userType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore // Evita recursión en JSON
