@@ -47,4 +47,5 @@ public class PersonalData {
     @ManyToOne
     @JoinColumn(name = "vulnerabilityId", nullable = false)
     private Vulnerability vulnerability;
+
 }

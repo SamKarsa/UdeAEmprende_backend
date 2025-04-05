@@ -46,14 +46,14 @@ public class UserController {
     }
 
     @PostMapping
-    public UserPostDTO createNewUser(@RequestBody UserPostDTO userPostDTO) {
+    public User createNewUser(@RequestBody UserPostDTO userPostDTO) {
         User newUser = new User();
         newUser.setEmail(userPostDTO.getEmail());
         newUser.setPassword(userPostDTO.getPassword());
         newUser.setUserStatus(userPostDTO.getUserStatus());
 
         userService.saveUser(newUser);
-        return userPostDTO;
+        return newUser;
     }
 
     @GetMapping("/{id}")
