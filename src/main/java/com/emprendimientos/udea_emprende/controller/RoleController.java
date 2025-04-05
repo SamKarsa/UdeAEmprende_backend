@@ -1,5 +1,6 @@
 package com.emprendimientos.udea_emprende.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emprendimientos.udea_emprende.model.Role;
+import com.emprendimientos.udea_emprende.model.User;
+import com.emprendimientos.udea_emprende.model.UserType;
 import com.emprendimientos.udea_emprende.service.RoleService;
+
+import getMethodDTO.RoleGetDTO;
+import postMethodDTO.RolePostDTO;
 
 @RestController
 @RequestMapping("/api/roles")
@@ -23,19 +29,56 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping
-    public List<Role> getAllRoles() {
-        return roleService.getAllRoles();
+    public List<RoleGetDTO> getAllRoles() {
+        List<Role> roles = roleService.getAllRoles();
+        List<RoleGetDTO> rolesDTO = new ArrayList<>();
+
+        for (Role role : roles) {
+            RoleGetDTO roleGetDTO = new RoleGetDTO();
+            roleGetDTO.setRoleId(role.getRolesId());
+            roleGetDTO.setCreatedAt(role.getCreatedAt());
+            roleGetDTO.setUpdatedAt(role.getUpdatedAt());
+            roleGetDTO.setUserTypeId(role.getUserType().getUserTypeId());
+            roleGetDTO.setUserId(role.getUser().getUserId());
+
+            rolesDTO.add(roleGetDTO);
+        }
+        return rolesDTO;
+
     }
 
     @PostMapping
-    public Role createNewRole(@RequestBody Role newRole) {
+    public RolePostDTO createNewRole(@RequestBody RolePostDTO rolePostDTO) {
+        Role newRole = new Role();
+        User user = new User();
+        user.setUserId(rolePostDTO.getUserId());
+        UserType userType = new UserType();
+        userType.setUserTypeId(rolePostDTO.getUserTypeId());
+
+        newRole.setUser(user);
+        newRole.setUserType(userType);
+
         roleService.saveRole(newRole);
-        return newRole;
+        return rolePostDTO;
+    }
+
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @GetMapping("/{id}")
-    public Role getRoleById(@PathVariable Integer id) {
-        return roleService.getRoleById(id);
+    public RoleGetDTO getRoleById(@PathVariable Integer id) {
+        Role role = roleService.getRoleById(id);
+
+        RoleGetDTO roleGetDTO = new RoleGetDTO();
+        roleGetDTO.setRoleId(role.getRolesId());
+        roleGetDTO.setCreatedAt(role.getCreatedAt());
+        roleGetDTO.setUpdatedAt(role.getUpdatedAt());
+        roleGetDTO.setUserId(role.getUser().getUserId());
+        roleGetDTO.setUserTypeId(role.getUserType().getUserTypeId());
+
+        return roleGetDTO;
+
     }
 
     @DeleteMapping("/{id}")

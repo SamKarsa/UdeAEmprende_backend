@@ -24,6 +24,7 @@ public class Role {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
+    // Relación N:1 con User
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
@@ -32,33 +33,15 @@ public class Role {
     @JoinColumn(name = "userTypeId", nullable = false)
     private UserType userType;
 
-    // Métodos auxiliares para manejar solo los IDs en el JSON
-    @Transient
-    private Integer userId;
-
-    @Transient
-    private Integer userTypeId;
-
-    @PostLoad
-    private void fillTransient() {
-        if (user != null) {
-            this.userId = user.getUserId();
-        }
-        if (userType != null) {
-            this.userTypeId = userType.getUserTypeId();
-        }
-    }
-
     @PrePersist
-    @PreUpdate
-    private void fillPersistent() {
-        if (userId != null) {
-            user = new User();
-            user.setUserId(userId);
-        }
-        if (userTypeId != null) {
-            userType = new UserType();
-            userType.setUserTypeId(userTypeId);
-        }
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
 }

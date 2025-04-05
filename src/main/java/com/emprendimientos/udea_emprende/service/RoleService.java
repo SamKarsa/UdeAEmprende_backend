@@ -29,4 +29,5 @@ public class RoleService {
     public void deleteRoleById(Integer rolesId) {
         rolesRepository.deleteById(rolesId);
     }
+
 }
