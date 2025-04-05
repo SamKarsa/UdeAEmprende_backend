@@ -46,7 +46,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
 
-📝 Nota: No necesitas crear las tablas manualmente, el sistema las generará automáticamente con base en las entidades JPA definidas en el código.
+> 📝 Nota: No necesitas crear las tablas manualmente, el sistema las generará automáticamente con base en las entidades JPA definidas en el código.
 
 ---
 
@@ -65,9 +65,7 @@ GET /api/personal-data - Datos personales
 
 POST /api/business-data - Información de negocios
 
-```propieties
-📌 Nota: El sistema no cuenta con autenticación JWT o sesiones. Todos los endpoints son públicos por ahora.
-```
+> 📌 Nota: El sistema no cuenta con autenticación JWT o sesiones. Todos los endpoints son públicos por ahora.
 
 ---
 
@@ -85,7 +83,7 @@ Haz clic en el botón "Run" o usa la paleta de comandos para ejecutar Spring Boo
 ./mvnw spring-boot:run
 ```
 
-🧪 Revisa que la conexión con la base de datos sea correcta antes de correr el proyecto.
+> 🧪 Revisa que la conexión con la base de datos sea correcta antes de correr el proyecto.
 
 ---
 
