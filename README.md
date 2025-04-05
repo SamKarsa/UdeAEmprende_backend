@@ -1,9 +1,5 @@
 # Emprende UdeA - Backend
 
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Java 17](https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/17/)
-[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-
 Este repositorio contiene el backend del proyecto **Emprende UdeA**, un sistema web que sirve como una vitrina para los emprendimientos de la Universidad de Antioquia. Este backend expone servicios REST que permiten registrar, visualizar y gestionar información de usuarios y negocios registrados.
 
 👉 Repositorio del frontend: [UdeAEmprende_frontend](https://github.com/SamKarsa/UdeAEmprende_frontend)
@@ -13,6 +9,10 @@ Este repositorio contiene el backend del proyecto **Emprende UdeA**, un sistema 
 ---
 
 ## 🧰 Tecnologías utilizadas
+
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Java 17](https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/17/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 
 - **Java 17**
 - **Spring Boot**
