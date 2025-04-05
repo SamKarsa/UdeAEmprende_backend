@@ -1,6 +1,5 @@
 package com.emprendimientos.udea_emprende.model;
 
-import jakarta.persistence.Entity;
 import lombok.Data;
 
 @Data
