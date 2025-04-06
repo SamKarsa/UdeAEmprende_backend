@@ -30,4 +30,9 @@ public class PersonalDataService {
     public void deletePersonalDataById(Integer personalDataId) {
         personalDataRepository.deleteById(personalDataId);
     }
+
+    public PersonalData getPersonalDataByUserId(Integer userId) {
+        return personalDataRepository.findByUser_UserId(userId)
+                .orElseThrow(() -> new RuntimeException("Personal data not found for user ID: " + userId));
+    }
 }
