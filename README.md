@@ -38,13 +38,46 @@ Este repositorio contiene el backend del proyecto **Emprende UdeA**, un sistema 
 
 ---
 
+## 📦 Datos de prueba (opcional)
+
+Si deseas cargar la base de datos de prueba incluida en este proyecto, sigue los siguientes pasos:
+
+🛠️ 1. Crear la base de datos
+Abre MySQL desde consola (CMD o Workbench) y ejecuta:
+
+```Bash
+CREATE DATABASE emprendimientosudea;
+```
+
+2. Abrir la terminal y ubicarse en la carpeta de MySQL
+   
+```Bash
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+```
+
+📥 3. Importar el archivo SQL
+Ejecuta el siguiente comando (ajusta la ruta al proyecto si es necesario):
+
+   
+```Bash
+mysql -u root -p emprendimientosudea < "ruta\a\tu\proyecto\UdeAEmprende_backend\BD\bd.sql"
+```
+Example:
+```Bash
+mysql -u root -p emprendimientosudea < "C:\Users\alex\Documents\UdeAEmprende_backend\BD\bd.sql"
+```
+
+✅ Resultado
+Esto cargará automáticamente todas las tablas y datos necesarios para usar el proyecto.
+
+---
 ## 🗂 Configuración del archivo `application.properties`
 
 Debes configurar el archivo `src/main/resources/application.properties` con los siguientes datos:
 
 ```properties
-spring.application.name=NombreDeTuBaseDeDatos
-spring.datasource.url=jdbc:mysql://localhost:3306/NombreDeTuBaseDeDatos
+spring.application.name=emprendimientosudea <-- Aqui va ek nombre de la base de datos
+spring.datasource.url=jdbc:mysql://localhost:3306/emprendimientosudea
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
 
@@ -89,11 +122,6 @@ Haz clic en el botón "Run" o usa la paleta de comandos para ejecutar Spring Boo
 ```
 
 > 🧪 Revisa que la conexión con la base de datos sea correcta antes de correr el proyecto.
-
----
-
-## 📦 Datos de prueba (opcional)
-
 
 ---
 
