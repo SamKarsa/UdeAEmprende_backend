@@ -76,7 +76,7 @@ Esto cargará automáticamente todas las tablas y datos necesarios para usar el 
 Debes configurar el archivo `src/main/resources/application.properties` con los siguientes datos:
 
 ```properties
-spring.application.name=emprendimientosudea <-- Aqui va ek nombre de la base de datos
+spring.application.name=emprendimientosudea <-- Aqui va el nombre de la base de datos
 spring.datasource.url=jdbc:mysql://localhost:3306/emprendimientosudea
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
